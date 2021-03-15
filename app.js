@@ -48,6 +48,6 @@ app.get("/download/:name", function(request, response){
 });
 
 app.use(express.static(`public`));
-server.listen(port,() => {
+app.listen(port,() => {
     console.log(`Server running at port `+port);
   });
