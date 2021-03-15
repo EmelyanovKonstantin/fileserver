@@ -4,6 +4,8 @@ const fs  = require('fs');
 const fileUpload = require('express-fileupload');
 var serveIndex = require('serve-index');
 
+const port = process.env.PORT || 3001
+
 app.use(fileUpload());
 app.use('/store', serveIndex(__dirname + '/store'));
 
@@ -46,4 +48,6 @@ app.get("/download/:name", function(request, response){
 });
 
 app.use(express.static(`public`));
-app.listen(3001);
+server.listen(port,() => {
+    console.log(`Server running at port `+port);
+  });
